@@ -61,3 +61,65 @@
   color: #666;
 }
 
+.nav-pc__item--selected {
+  color: #4376bb;
+  border-bottom: 2px solid #4376bb;
+}
+
+.nav-pc__item--selected:hover {
+  color: #4376bb;
+}
+
+.copyright {
+  border-top: 1px solid #444;
+  color: #666;
+  flex: 1;
+  font-size: 12px;
+  line-height: 30px;
+  margin: 20px 20px 0;
+  text-align: center;
+}
+
+.footer {
+  align-items: flex-start;
+  background: #0c2938;
+  color: #999;
+  font-weight: lighter;
+  padding: 40px 0;
+}
+
+.footer__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.about {
+  padding: 0 20px;
+}
+
+.about__content {
+  font-size: 14px;
+  line-height: 20px;
+  padding-top: 20px;
+}
+
+.about__title {
+  font-size: 20px;
+}
+
+.sponsor-logo {
+  border-radius: 2px;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 80px;
+  width: 200px;
+}
+
+.nvidia-logo {
+  background-image: url(../images/nvidia-logo.png)
+}
+
+.arterys-logo {
+  background-image: url(../images/arterys-logo.png)
+}

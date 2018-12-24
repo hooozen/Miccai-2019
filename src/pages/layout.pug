@@ -1,0 +1,51 @@
+-
+  var navs = [
+    { name: 'Home', href: "./" },
+    { name: 'Data', href: './data.html' },
+    { name: 'Submit', href: './submit.html' },
+    { name: 'Evaluate', href: './evaluate.html' },
+    { name: 'Result', href: './result.html' },
+  ];
+
+doctype html
+html
+
+  block vars
+  block head
+    head
+      meta(charset="utf-8")
+      meta(http-equiv="X-UA-Compatible" content="IE=edge")
+      title #{title}
+      meta(name="viewport" content="width=device-width, initial-scale=1")
+      link(rel="stylesheet" type="text/css" media="screen" href="layout.css")
+  body
+    block header
+      .header
+        .nav-pc
+          .nav-pc__item.nav-pc__item--logo
+          each item, index in navs
+            a.nav-pc__item(
+              class=index === selectedId ? 'nav-pc__item--selected' : ''
+              href=item.href
+            )= item.name
+    block main
+      .main
+
+    block footer
+      .footer
+        .footer__row
+          .about
+            .about__title Organizers
+            .about__content
+              .list-item Xiahai Zhuang, School of Data Science, Fudan University, Shanghai China. 
+              .list-item Lei Li, School of Biomedical engineering, Shanghai Jiao Tong University, China.
+          .about
+            .about__title Sponsors
+            .about__content
+              .sponsor-logo.nvidia-logo
+              .sponsor-logo.arterys-logo
+        .footer__row
+          .copyright Copyright © 2019 Zhuang, Xiahai, All Rights Reserved
+
+
+

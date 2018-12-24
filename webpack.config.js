@@ -35,7 +35,7 @@ module.exports = {
     new HTMLWebpackPlugin({
       title: 'Miccai',
       filename: 'index.html',
-      template: getAbPath('./src/pages/index.html'),
+      template: getAbPath('./src/pages/index.pug'),
       inject: 'index',
     }),
   ],
