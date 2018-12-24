@@ -1,0 +1,63 @@
+.p {
+  margin: 16px 0;
+}
+
+.list-item, .list-item--two {
+  padding-left: 1em;
+}
+
+.list-item::before, .list-item--two::before {
+  background: #aaa;
+  border-radius: 0.2em;
+  content: '';
+  display: inline-block;
+  height: 0.4em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  width: 0.4em;
+}
+
+.list-item--two::before {
+  border-radius: 0.05em;
+  height: 0.1em;
+}
+
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.header--fixed {
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 1;
+}
+
+.nav-pc {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  height: 60px;
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+.nav-pc__item {
+  cursor: pointer;
+  color: #333;
+  display: block;
+  padding: 8px 0;
+  margin: 0 10px;
+}
+
+.nav-pc__item--logo {
+  background: url(../images/miccai-logo.jpg) center center no-repeat;
+  background-size: contain;
+  width: 120px;
+}
+
+.nav-pc__item:hover {
+  color: #666;
+}
+

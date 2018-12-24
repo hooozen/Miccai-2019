@@ -26,6 +26,9 @@ module.exports = {
           limit: 8192,
         },
       }],
+    }, {
+      test: /\.pug$/,
+      use: ['pug-loader'],
     }],
   },
   plugins: [
