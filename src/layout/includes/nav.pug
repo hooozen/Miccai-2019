@@ -1,0 +1,7 @@
+.nav-pc
+  .nav-pc__item.nav-pc__item--logo
+  each item, index in navs
+    a.nav-pc__item(
+      class=index === selectedId ? 'nav-pc__item--selected' : ''
+      href=item.href
+    )= item.name 

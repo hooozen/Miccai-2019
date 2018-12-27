@@ -1,15 +1,17 @@
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-function getAbPath(dir) {
-  return path.resolve(__dirname, dir);
+
+function srcPath(dir) {
+  dir = dir || '';
+  return path.resolve(__dirname, './src', dir);
 }
 
 module.exports = {
   mode: 'development',
   entry: {
-    main: getAbPath('./main.js'),
-    index: getAbPath('./src/index/index.js'),
+    main: './main.js',
+    index: srcPath('index/index.js'),
   },
   devServer: {
     port: 7777,
@@ -28,14 +30,33 @@ module.exports = {
       }],
     }, {
       test: /\.pug$/,
-      use: ['pug-loader'],
+      use: [{
+        loader: 'apply-loader',
+        options: {
+          obj: {
+            navs: [
+              { name: 'Home', href: "./" },
+              { name: 'Data', href: './data.html' },
+              { name: 'Submit', href: './submit.html' },
+              { name: 'Evaluate', href: './evaluate.html' },
+              { name: 'Result', href: './result.html' },
+            ],
+            title: 'xxxxxxxx',
+          },
+        },
+      },{
+        loader: 'pug-loader',
+        options: {
+          basedir: srcPath(),
+        }
+      }],
     }],
   },
   plugins: [
     new HTMLWebpackPlugin({
       title: 'Miccai',
       filename: 'index.html',
-      template: getAbPath('./src/pages/index.pug'),
+      template: srcPath('layout/index.pug'),
       inject: 'index',
     }),
   ],
