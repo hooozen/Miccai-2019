@@ -1,7 +1,15 @@
-.nav-pc
-  .nav-pc__item.nav-pc__item--logo
-  each item, index in navs
-    a.nav-pc__item(
-      class=index === selectedId ? 'nav-pc__item--selected' : ''
-      href=item.href
-    )= item.name 
+input(type="checkbox" id="nav-menu-status")
+.nav-outer
+  .nav-mobile
+    label(for="nav-menu-status")
+      .nav-mobile__btn-outer
+        .nav-mobile__bread-outer.nav-mobile__bread-outer--top: .nav-mobile__bread.nav-mobile__bread--top
+        .nav-mobile__bread-outer.nav-mobile__bread-outer--bottom: .nav-mobile__bread.nav-mobile__bread--bottom
+    .nav-mobile__logo.
+  .nav
+    .nav__item.nav__item--logo
+    each item, index in navs
+      a.nav__item(
+        class=index === selectedId ? 'nav__item--selected' : ''
+        href=item.href
+      )= item.name 
