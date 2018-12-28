@@ -1,0 +1,19 @@
+extends includes/layout.pug
+
+block vars
+  - selectedId = 1
+  - page = { name: 'data' }
+
+block content
+  .content-head
+    .content-head__img
+    .content-head__text The CMR data from 45 patients, who underwent cardiomyopathy, had been collected from Shanghai Renji hospital with institutional ethics approval and had been anonymized. Each patient had been scanned using the three CMR sequences, i.e. the LGE, T2 and bSSFP. The three CMR sequences were all breath-hold, multi-slice, acquired in the ventricular short-axis views.
+
+  .section-outer
+    .section
+      .section-inner
+        .section__title Training data
+        .section__text
+          .p 35 T2-weight CMR (image + manual label)<br>
+            | 35 bSSFP CMR (image + manual label)<br>
+            | 5 LGE CMR (image + manual label)

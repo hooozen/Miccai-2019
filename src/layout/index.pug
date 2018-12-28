@@ -1,3 +1,55 @@
-include includes/index.pug
+extends includes/layout.pug
 
-  div index
+block content 
+  .content-head
+    .content-head__title
+      .content-head__pre-title MMS-CMRIS 2019
+      .content-head__main-title Multi-sequence Cardiac MRI Segmentation Challenge
+    .content-head__img
+  
+  .section-outer
+    .section: .section-inner
+      .section__side
+        .section__side-img.section__side-img--clinical
+      .section__content
+        .section__title Clinical Background
+        .section__text: .p Accurate computing, analysis and modeling of the ventricles from 3D medical images is
+          | important in the development of clinical applications. Segmentation of ventricles and myocardium is however still
+          | arduous, particularly due to the pathological myocardium from LGE CMR; but manual delineation is generally
+          | time-consuming, tedious and subject to inter- and intra-observer variations.
+
+    .section: .section-inner
+      .section__side
+        .section__side-img.section__side-img--motivation
+      .section__content
+        .section__title Motivation
+        .section__text: .p This challenge provides 45 multi-sequence CMR images from patients who underwent cardiomyopathy; and
+          | each patient had been scanned using the three CMR sequences, i.e. the LGE, T2 and bSSFP. It aims at creating
+          | an open and fair competition for various research groups to test and validate their methods, particularly
+          | for the multi-sequence ventricle and myocardium segmentation. The workshop is not only to benchmark various
+          | heart segmentation algorithms, but also to cover the topic of general cardiac image segmentation,
+          | registration and modeling.
+
+    .section: .section-inner
+      .section__side
+        .section__side-img.section__side-img--topic
+      .section__content
+        .section__title Topic
+        .section__text
+          .p.list-item The segmentation of ventricles and myocardium, including
+            .list-item--two Atlas based segmentation
+            .list-item--two Statistical shape model based segmentation
+            .list-item--two Deep learning segmentation Other methods
+          .p.list-item General cardiac image segmentation
+          .p.list-item Registration and modeling for cardiac images
+
+    .section: .section-inner
+      .section__side
+        .section__side-img.section__side-img--plan
+      .section__content
+        .section__title Award
+        .section__text: .p The best works will be awarded with prizes funded by Nvidia and the Arterys.com; and the selected
+          | papers will be published in Lecture Notes in Computer Science (LNCS), Springer with STACOM workshop (see
+          | previous proceedings). In addition, the benchmarked algorithms will be summarized to form a full paper for
+          | potential publications in <a href="https://www.journals.elsevier.com/medical-image-analysis">MedIA</a> and 
+          | <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=42">IEEE TMI</a>, and the participants will share the credit.

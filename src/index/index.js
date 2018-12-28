@@ -1,2 +1,1 @@
-import '../style/main.css';
-import '../style/common.css';
+import '../style/common.scss';

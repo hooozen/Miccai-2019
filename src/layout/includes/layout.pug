@@ -1,3 +1,9 @@
+block vars
+  - 
+    page = {
+        name: 'home',
+        banner: false
+      }
 doctype html
 html
   head
@@ -7,9 +13,11 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body
     .header
-      include nav.pug
-    .content-outer
+      include ./nav.pug
+      if (page.banner)
+        include ./banner.pug
+    .content-outer(class=`content-outer--${page.name}`)
       block content
     footer
-      include footer.pug
+      include ./footer.pug
       

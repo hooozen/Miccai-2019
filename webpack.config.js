@@ -13,13 +13,16 @@ module.exports = {
     main: './main.js',
     index: srcPath('index/index.js'),
   },
+  output: {
+    path: path.resolve(__dirname, './dist'),
+  },
   devServer: {
     port: 7777,
   },
   module: {
     rules: [{
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader'],
+      test: /\.s?css$/,
+      use: ['style-loader', 'css-loader', 'sass-loader'],
     }, {
       test: /\.(png|jpge?|gif)$/,
       use: [{
@@ -31,9 +34,10 @@ module.exports = {
     }, {
       test: /\.pug$/,
       use: [{
-        loader: 'apply-loader',
+        loader: path.resolve('./src/loaders/pug-loader.js'),
         options: {
-          obj: {
+          basedir: srcPath('layout/'),
+          data: {
             navs: [
               { name: 'Home', href: "./" },
               { name: 'Data', href: './data.html' },
@@ -41,13 +45,9 @@ module.exports = {
               { name: 'Evaluate', href: './evaluate.html' },
               { name: 'Result', href: './result.html' },
             ],
+            selectedId: 0,
             title: 'xxxxxxxx',
           },
-        },
-      },{
-        loader: 'pug-loader',
-        options: {
-          basedir: srcPath(),
         }
       }],
     }],
@@ -59,5 +59,12 @@ module.exports = {
       template: srcPath('layout/index.pug'),
       inject: 'index',
     }),
+    new HTMLWebpackPlugin({
+      title: 'Miccai',
+      filename: 'data.html',
+      template: srcPath('layout/data.pug'),
+      inject: 'index',
+    }),
+
   ],
 }
