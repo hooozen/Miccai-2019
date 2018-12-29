@@ -246,22 +246,26 @@ a:hover {
   flex-wrap: wrap;
   margin: 0 auto;
   max-width: 960px;
-  padding: 30px 0;
+  padding: 30px 20px;
 }
 
 .section__side, .section__content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
 .section__side {
-  align-items: center;
+  align-items: flex-start;
   flex: 0 0 280px;
+}
+
+.section__side--width-equal {
+  flex: 1;
 }
 
 .section__content {
   flex: 1;
-  flex-direction: column;
   line-height: 24px;
   text-align: justify;
 }
@@ -351,7 +355,6 @@ a:hover {
     height: 500px;
     background-image: url(../images/home-header-img.jpg);
   }
-
   .section {
     margin: 4px 0 0;
     &:hover {
@@ -361,10 +364,10 @@ a:hover {
   }
   .section-inner {
     border: none;
-    padding: 100px 0;
+    padding: 100px 20px;
   }
   .section__side {
-    justify-content: flex-start;
+    flex: 0 0 180px;
   }
   .section__side-img {
     height: 128px;
@@ -423,14 +426,19 @@ a:hover {
     border-bottom: 1px solid #f3f3f3;
     line-height: 40px;
   }
+  .content-outer {
+    padding-top: 48px;
+  }
   .section-inner {
     align-items: center;
-    border: 1px solid #fafafa;
     flex-direction: column;
     padding: 20px 0;
   }
-  .content-outer {
-    padding-top: 48px;
+  .section__side {
+    align-items: center;
+  }
+  .section__content {
+    flex: auto;
   }
   .content-outer--home {
     .section {
@@ -442,10 +450,6 @@ a:hover {
     .section-inner {
       padding: 20px 0;
     }
-  }
-  .section__side {
-    align-items: center;
-    flex: 0 0 180px;
   }
   .section__title {
     text-align: center;

@@ -21,6 +21,11 @@ module.exports = {
     disableHostCheck: true,
     port: 7777,
   },
+  resolve: {
+    alias: {
+      images: path.resolve('./src/images'),
+    },
+  },
   module: {
     rules: [{
       test: /\.s?css$/,
@@ -36,6 +41,8 @@ module.exports = {
     }, {
       test: /\.pug$/,
       use: [{
+        loader: 'html-loader',
+      }, {
         loader: path.resolve('./src/loaders/pug-loader.js'),
         options: {
           basedir: srcPath('layout/'),
@@ -48,7 +55,7 @@ module.exports = {
               { name: 'Result', href: './result.html' },
             ],
             selectedId: 0,
-            title: 'xxxxxxxx',
+            title: 'Miccai 19',
           },
         }
       }],
