@@ -3,13 +3,14 @@ extends includes/layout.pug
 block vars
   - selectedId = 2
   - page = { name: 'submit', banner: true }
+  - pdfURL = './file/ParticipantsAgreement.pdf',
 
 block content
   .section-outer
     .section: .section-inner: .section__content
       .section__title Participate procedure
       .section__text
-        .p 1.Read carefully the Terms and Conditions and return the signed Data Use agreement document.
+        .p 1.Read carefully the Terms and Conditions and return the signed #[a(href=pdfURL download="Data Access Agreement for Participants.pdf") "Data Use Agreement Document"].
         .p 2.We’ll get in touch and then send you back the data link.
         .p 3.Send us or submit by a platform your final results (in nii.gz format) from the validation data set.
         .p 4.Submit your paper follow the LNCS style according to the main MICCAI conference guidelines. 
