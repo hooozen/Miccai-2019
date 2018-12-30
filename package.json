@@ -12,6 +12,7 @@
   "devDependencies": {
     "apply-loader": "^2.0.0",
     "autoprefixer": "^9.4.3",
+    "clean-webpack-plugin": "^1.0.0",
     "cross-env": "^5.2.0",
     "css-loader": "^2.0.2",
     "cssnano": "^4.1.8",
@@ -31,6 +32,7 @@
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.28.2",
+    "webpack-clean-plugin": "^0.2.3",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.13"
   }
