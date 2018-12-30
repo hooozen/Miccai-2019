@@ -6,7 +6,7 @@ block vars
 
 block content
   .content-head
-    .content-head__img: .figure: img(src="~images/data-header-img.png")
+    .content-head__title
     .content-head__text
       .p The CMR data from 45 patients, who underwent cardiomyopathy, had been collected from Shanghai
         | Renji hospital with institutional ethics approval and had been anonymized. Each patient had been scanned using
@@ -21,23 +21,46 @@ block content
         .section__title Training data
         .section__text
           .p
-            .list-item Patient 1-30:
+            .list-item Patient 1-5:
+              .list-item--two LGE CMR (image + manual label) for validation <br><br>
               .list-item--two T2-weight CMR (image + manual label)
               .list-item--two bSSFP CMR (image + manual label)
           .p
-            .list-item Patient 31-40:
+            .list-item Patient 6-35:
+              .list-item--two T2-weight CMR (image + manual label)
+              .list-item--two bSSFP CMR (image + manual label)
+          .p
+            .list-item Patient 36-45:
               .list-item--two T2-weight CMR (only image)
               .list-item--two bSSFP CMR (only image)
-          .p
-            .list-item Patient 41-45:
-              .list-item--two T2-weight CMR (image + manual label)
-              .list-item--two bSSFP CMR (image + manual label)
-              .list-item--two LGE CMR (image + manual label) for validation
 
       .section__content.section__content--start
         .section__title Test data
-        .section__text: .p: .list-item Patient 1-40:
+        .section__text: .p: .list-item Patient 6-45:
           .list-item--two LGE CMR (only image)
+
+    .section: .section-inner: .section__content
+      .section__title Reference Standard
+      .section__text
+        .p In the proposed challenge, we will use manual segmentation as gold-standard for final evaluation of
+          | submitted algorithms. Eventually, we hope that an automated ventricle segmentation method can be
+          | translational to clinical applications.
+        .p Manual segmentation of the right and left ventricular, and ventricular myocardium was performed by
+          | trained raters (master or PhD student in BME or medical imaging field), and validated by experts in
+          | cardiac anatomy. The raters employed a brush tool in the software ITK-SNAP in order to manually label
+          | each substructure slice-by-slice. The manual segmentation took about 20 minutes/case.
+
+    .section: .section-inner: .section__content
+      .figure: img(src="~images/evaluate-ground-truth.jpg")
+
+    .section: .section-inner: .section__content
+      .section__title Evaluation matrix
+      .section__text
+        .p Dice score, average surface distance and Hausdorff distance will be used as evaluation metrics.
+        .p We will evaluate the results using our in-house evaluation software off-line for a fair competition
+          | and comparison. Ranking of the submitted algorithm will be published on the STACOM workshop and
+          | challenge website according to the achieved Dice score and then average surface distance and Hausdorff
+          | distance if same Dice score obtained.
 
     .section: .section-inner
       .section__side

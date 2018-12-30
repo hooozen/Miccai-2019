@@ -62,8 +62,8 @@ module.exports = {
               { name: 'Home', href: "./" },
               { name: 'Data', href: './data.html' },
               { name: 'Submit', href: './submit.html' },
-              { name: 'Evaluate', href: './evaluate.html' },
               { name: 'Result', href: './result.html' },
+              { name: 'FAQ', href: './FAQ.html' },
             ],
             selectedId: 0,
             title: 'Miccai 19',
@@ -94,8 +94,8 @@ module.exports = {
     }),
     new HTMLWebpackPlugin({
       title: 'Miccai',
-      filename: 'evaluate.html',
-      template: srcPath('layout/evaluate.pug'),
+      filename: 'FAQ.html',
+      template: srcPath('layout/FAQ.pug'),
     }),
     new HTMLWebpackPlugin({
       title: 'Miccai',

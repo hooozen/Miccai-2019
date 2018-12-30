@@ -19,7 +19,7 @@ import './src/style/common.scss';
   }
 
   function setFooterPosition() {
-    if (document.documentElement.offsetHeight + footerEl.offsetHeight > document.documentElement.clientHeight) {
+    if (document.documentElement.offsetHeight > document.documentElement.clientHeight) {
       footerEl.style.position = 'relative';
     } else {
       footerEl.style.position = 'fixed';
