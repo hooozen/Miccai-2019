@@ -1,6 +1,7 @@
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 const devMode = process.env.NODE_ENV === 'dev';
@@ -78,7 +79,10 @@ module.exports = {
       filename: "style/[name][hash:8].css",
       chunkFilename: "[id].css"
     }),
-    new CleanWebpackPlugin(),    
+    new CleanWebpackPlugin(),
+    new CopyWebpackPlugin([
+      { from: path.resolve('./src/file'), to: path.resolve('./dist/file')}
+    ]),
     new HTMLWebpackPlugin({
       title: 'Miccai',
       filename: 'index.html',

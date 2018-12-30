@@ -3,6 +3,7 @@ extends includes/layout.pug
 block vars
   - selectedId = 1
   - page = { name: 'data', banner: true }
+  - pdfURL = './file/ParticipantsAgreement.pdf',
 
 block content
   .content-head
@@ -12,8 +13,9 @@ block content
         | Renji hospital with institutional ethics approval and had been anonymized. Each patient had been scanned using
         | the three CMR sequences, i.e. the LGE, T2 and bSSFP. The three CMR sequences were all breath-hold, multi-slice,
         | acquired in the ventricular short-axis views.
-      .p (To register, please download "Data Use Agreement Document", and return the signed version to the organizers.
-        | Then we'll get in touch and send you back the data link.)
+      .p (To register, please download #[a(href=pdfURL download="Data Access Agreement for Participants.pdf") "Data Use Agreement Document"],
+        | and return the signed version to the organizers. Then we'll get in touch and send you
+        | back the data link.)
 
   .section-outer
     .section: .section-inner
