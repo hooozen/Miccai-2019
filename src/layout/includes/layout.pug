@@ -9,15 +9,14 @@ html
   head
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
-    title #{title}
+    title #{page.name ? page.name + ' |' : ''} MS-CMR Segmentation
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body
     .header
       include ./nav.pug
-      if (page.banner)
-        include ./banner.pug
+    if (page.banner)
+      include ./banner.pug
     .content-outer(class=`content-outer--${page.name}`)
       block content
-    footer
-      include ./footer.pug
+    include ./footer.pug
       

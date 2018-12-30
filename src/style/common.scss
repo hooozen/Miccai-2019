@@ -1,11 +1,14 @@
 /* reset start */
 html,body {
-  background: #fff;
   color: #333;
   font-family: "SF Pro SC","HanHei SC","SF Pro Text","Myriad Set Pro","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif;
   font-size: 16px;
   margin: 0;
   padding: 0;
+}
+
+body {
+  padding-top: 60px;
 }
 
 div {
@@ -28,6 +31,9 @@ a:hover {
 }
 
 .list-item, .list-item--two {
+  line-height: 1.5em;
+}
+.list-item--two {
   padding-left: 1em;
 }
 
@@ -50,7 +56,10 @@ a:hover {
 .header {
   background-color: #fff;
   border-bottom: 1px solid #eee;
-  position: relative;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
   z-index: 1;
 }
 
@@ -73,13 +82,15 @@ a:hover {
 
 .nav-mobile {
   border-bottom: 1px solid #f3f3f3;
+  bottom: 0;
   display: none;
   height: 48px;
-  position: fixed;
+  left: 0;
   overflow: hidden;
+  position: absolute;
+  right: 0;
   top: 0;
-  width: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 
 .nav-mobile__btn-outer {
@@ -140,7 +151,6 @@ a:hover {
   .nav-mobile__bread--bottom {
     transform: translateY(0);
   }
-
 }
 
 /* 移动端导航栏 nav end */
@@ -163,7 +173,7 @@ a:hover {
 }
 
 .nav__item--logo {
-  background: url(../images/miccai-logo.jpg) center center no-repeat;
+  background: url(~images/miccai-logo.jpg) center center no-repeat;
   background-size: contain;
   width: 120px;
 }
@@ -182,12 +192,15 @@ a:hover {
 }
 
 .banner {
+  align-items: center;
   background: #0c2938;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6) inset;
   color: #eee;
-  height: 94px;
+  display: flex;
+  flex-direction: column;
+  height: 96px;
+  justify-content: center;
   left: 0;
-  padding: 20px 0;
   position: fixed;
   right: 0;
   text-align: center;
@@ -196,15 +209,17 @@ a:hover {
 
 .banner__title {
   font-size: 24px;
+  max-width: 100%;
   padding-bottom: 10px;
 }
 
 .banner__subtitle {
+  max-width: 100%;
 }
 
 .content-outer {
   background: #fff;
-  margin-top: 94px;
+  margin-top: 96px;
   overflow: hidden;
   position: relative;
   z-index: 0;
@@ -226,12 +241,19 @@ a:hover {
   text-align: center;
 }
 
+.content-head__text {
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 20px;
+  text-align: justify;
+}
+
 .content-head__img {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
   margin: 0 auto;
   max-width: 960px;  
+  padding: 20px;
 }
 
 .section {
@@ -260,14 +282,19 @@ a:hover {
   flex: 0 0 280px;
 }
 
-.section__side--width-equal {
+.section__side--justify-equal {
   flex: 1;
 }
 
 .section__content {
   flex: 1;
   line-height: 24px;
+  max-width: 100%;
   text-align: justify;
+}
+
+.section__content--start {
+  justify-content: flex-start;
 }
 
 .section__title {
@@ -277,13 +304,23 @@ a:hover {
 }
 
 .section__text {
+}
 
+.figure {
+  text-align: center;
+  font-size: 0;
+  img {
+    max-width: 100%;
+  }
+}
+
+.awaitting {
+  padding: 60px 0;
 }
 
 .copyright {
   border-top: 1px solid #444;
   color: #666;
-  flex: 1;
   font-size: 12px;
   line-height: 30px;
   margin: 20px 20px 0;
@@ -293,9 +330,15 @@ a:hover {
 .footer {
   align-items: flex-start;
   background: #0c2938;
+  bottom: 0;
   color: #999;
   font-weight: lighter;
+  left: 0;
+  overflow: hidden;
   padding: 40px 0 20px;
+  position: relative;
+  right: 0;
+  z-index: 0;
 }
 
 .footer__row {
@@ -327,11 +370,11 @@ a:hover {
 }
 
 .nvidia-logo {
-  background-image: url(../images/nvidia-logo.png)
+  background-image: url(~images/nvidia-logo.png)
 }
 
 .arterys-logo {
-  background-image: url(../images/arterys-logo.png)
+  background-image: url(~images/arterys-logo.png)
 }
 
 .content-outer--home {
@@ -339,9 +382,11 @@ a:hover {
     background: rgba(0, 16, 33, 0.7);
     color: #fff;
     left: 50%;
+    max-width: 90%;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
+    width: max-content;
   }
   .content-head__pre-title {
     font-size: 60px;
@@ -353,7 +398,7 @@ a:hover {
   }
   .content-head__img {
     height: 500px;
-    background-image: url(../images/home-header-img.jpg);
+    background: url(~images/home-header-img.jpg) center center / contain no-repeat;
   }
   .section {
     margin: 4px 0 0;
@@ -374,22 +419,42 @@ a:hover {
     width: 128px;
   }
   .section__side-img--clinical {
-    background-image: url(../images/icon-hospital.png);
+    background-image: url(~images/icon-hospital.png);
   }
   .section__side-img--topic {
-    background-image: url(../images/icon-topic.png);
+    background-image: url(~images/icon-topic.png);
   }
   .section__side-img--motivation {
-    background-image: url(../images/icon-motivation.png);
+    background-image: url(~images/icon-motivation.png);
   }
   .section__side-img--plan {
-    background-image: url(../images/icon-plan.png);
+    background-image: url(~images/icon-plan.png);
   }
 }
 
+
 @media only screen and (max-width: 767px) {
+  body {
+    padding-top: 48px;
+  }
+  .content-outer--home {
+    .content-head__img {
+      height: 300px;
+    }
+    .content-head__title {
+      padding: 8px;
+    }
+    .content-head__pre-title {
+      font-size: 32px;
+    }
+    .content-head__main-title {
+      font-size: 20px;
+    }
+  }
   .nav-outer {
+    height: 50px;
     left: 0;
+    overflow: hidden;
     position: fixed;
     right: 0;
     top: 0;
@@ -406,6 +471,7 @@ a:hover {
     top: 0;
     transition: visibility 0.2 ease-in;
     visibility: hidden;
+    z-index: 1
   }
   .nav-mobile {
     align-items: center;
@@ -414,7 +480,7 @@ a:hover {
     justify-content: center;
   }
   .nav-mobile__logo {
-    background: url(../images/miccai-logo.jpg) center center no-repeat;
+    background: url(~images/miccai-logo.jpg) center center no-repeat;
     background-size: contain;
     height: 16px;
     width: 120px;
@@ -426,19 +492,27 @@ a:hover {
     border-bottom: 1px solid #f3f3f3;
     line-height: 40px;
   }
-  .content-outer {
-    padding-top: 48px;
+  .banner {
+    height: auto;
+    padding: 20px 0;
+    position: static;
   }
   .section-inner {
     align-items: center;
     flex-direction: column;
-    padding: 20px 0;
+    padding: 20px;
   }
   .section__side {
     align-items: center;
   }
+  .section__side--justify-equal {
+    flex: auto;
+  }
   .section__content {
     flex: auto;
+  }
+  .content-outer {
+    margin: 0;
   }
   .content-outer--home {
     .section {
@@ -448,14 +522,11 @@ a:hover {
       }
     }
     .section-inner {
-      padding: 20px 0;
+      padding: 20px;
     }
   }
   .section__title {
     text-align: center;
-  }
-  .section__text {
-    padding: 0 20px;
   }
 
   .footer__row {

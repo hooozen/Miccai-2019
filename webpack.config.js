@@ -1,6 +1,8 @@
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
+const devMode = process.env.NODE_ENV === 'dev';
 
 function srcPath(dir) {
   dir = dir || '';
@@ -11,10 +13,10 @@ module.exports = {
   mode: 'development',
   entry: {
     main: './main.js',
-    index: srcPath('index/index.js'),
   },
   output: {
     path: path.resolve(__dirname, './dist'),
+    filename: 'script/[name][hash].js',
   },
   devServer: {
     contentBase: path.resolve('./dist'),
@@ -29,12 +31,21 @@ module.exports = {
   module: {
     rules: [{
       test: /\.s?css$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
+      use: [
+        devMode ? 'style-loader' : {
+          loader: MiniCssExtractPlugin.loader,
+          options: { publicPath: '/' },
+        },
+        { loader: 'css-loader', options: { importLoaders: 1 } },
+        'postcss-loader',
+        'sass-loader'
+      ],
     }, {
       test: /\.(png|jpge?|gif)$/,
       use: [{
         loader: 'url-loader',
         options: {
+          name: 'images/[name][hash:8].[ext]',
           limit: 8192,
         },
       }],
@@ -62,18 +73,34 @@ module.exports = {
     }],
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: "style/[name][hash:8].css",
+      chunkFilename: "[id].css"
+    }),
     new HTMLWebpackPlugin({
       title: 'Miccai',
       filename: 'index.html',
       template: srcPath('layout/index.pug'),
-      inject: 'index',
     }),
     new HTMLWebpackPlugin({
       title: 'Miccai',
       filename: 'data.html',
       template: srcPath('layout/data.pug'),
-      inject: 'index',
     }),
-
+    new HTMLWebpackPlugin({
+      title: 'Miccai',
+      filename: 'submit.html',
+      template: srcPath('layout/submit.pug'),
+    }),
+    new HTMLWebpackPlugin({
+      title: 'Miccai',
+      filename: 'evaluate.html',
+      template: srcPath('layout/evaluate.pug'),
+    }),
+    new HTMLWebpackPlugin({
+      title: 'Miccai',
+      filename: 'result.html',
+      template: srcPath('layout/result.pug'),
+    }),
   ],
 }

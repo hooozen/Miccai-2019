@@ -2,30 +2,43 @@ extends includes/layout.pug
 
 block vars
   - selectedId = 1
-  - page = { name: 'data' }
+  - page = { name: 'data', banner: true }
 
 block content
   .content-head
-    .content-head__img
-    .content-head__text The CMR data from 45 patients, who underwent cardiomyopathy, had been collected from Shanghai Renji hospital with institutional ethics approval and had been anonymized. Each patient had been scanned using the three CMR sequences, i.e. the LGE, T2 and bSSFP. The three CMR sequences were all breath-hold, multi-slice, acquired in the ventricular short-axis views.
+    .content-head__img: .figure: img(src="~images/data-header-img.png")
+    .content-head__text
+      .p The CMR data from 45 patients, who underwent cardiomyopathy, had been collected from Shanghai
+        | Renji hospital with institutional ethics approval and had been anonymized. Each patient had been scanned using
+        | the three CMR sequences, i.e. the LGE, T2 and bSSFP. The three CMR sequences were all breath-hold, multi-slice,
+        | acquired in the ventricular short-axis views.
+      .p (To register, please download "Data Use Agreement Document", and return the signed version to the organizers.
+        | Then we'll get in touch and send you back the data link.)
 
   .section-outer
     .section: .section-inner
-      .section__side.section__side--width-equal
+      .section__side.section__side--justify-equal
         .section__title Training data
         .section__text
-          .p 35 T2-weight CMR (image + manual label)<br>
-            | 35 bSSFP CMR (image + manual label)<br>
-            | 5 LGE CMR (image + manual label)
-          .p 10 T2-weight CMR (only image)<br>
-            | 10 bSSFP CMR (only image)<br>
-      .section-content
-        .section__title Test data
-        .section__text: .p 40 LGE CMR (only image)
+          .p
+            .list-item Patient 1-30:
+              .list-item--two T2-weight CMR (image + manual label)
+              .list-item--two bSSFP CMR (image + manual label)
+          .p
+            .list-item Patient 31-40:
+              .list-item--two T2-weight CMR (only image)
+              .list-item--two bSSFP CMR (only image)
+          .p
+            .list-item Patient 41-45:
+              .list-item--two T2-weight CMR (image + manual label)
+              .list-item--two bSSFP CMR (image + manual label)
+              .list-item--two LGE CMR (image + manual label) for validation
 
-    .section: .section-inner: .section-content
-      .section__title Test data
-      .section__text
+      .section__content.section__content--start
+        .section__title Test data
+        .section__text: .p: .list-item Patient 1-40:
+          .list-item--two LGE CMR (only image)
+
     .section: .section-inner
       .section__side
         img.section__side-img(src="~images/data-bssfp.jpg")
