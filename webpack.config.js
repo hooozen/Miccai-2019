@@ -36,7 +36,7 @@ module.exports = {
       use: [
         devMode ? 'style-loader' : {
           loader: MiniCssExtractPlugin.loader,
-          options: { publicPath: '/' },
+          options: { publicPath: '../' },
         },
         { loader: 'css-loader', options: { importLoaders: 1 } },
         'postcss-loader',
