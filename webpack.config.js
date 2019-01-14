@@ -61,7 +61,7 @@ module.exports = {
           basedir: srcPath('layout/'),
           data: {
             navs: [
-              { name: 'Home', href: "./" },
+              { name: 'Home', href: "./index.html" },
               { name: 'Data', href: './data.html' },
               { name: 'Submit', href: './submit.html' },
               { name: 'Result', href: './result.html' },

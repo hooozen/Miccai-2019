@@ -384,14 +384,8 @@ a:hover {
 
 .content-outer--home {
   .content-head__title {
-    background: rgba(0, 16, 33, 0.5);
-    color: #fff;
-    left: 50%;
-    max-width: 90%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: max-content;
+    text-align: center;
+    margin-bottom: 20px;
   }
   .content-head__pre-title {
     font-size: 60px;
@@ -407,10 +401,6 @@ a:hover {
   }
   .section {
     margin: 4px 0 0;
-    &:hover {
-      box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.08);
-      z-index: 1;
-    }
   }
   .section-inner {
     border: none;
