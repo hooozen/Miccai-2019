@@ -56,6 +56,23 @@ module.exports = {
       use: [{
         loader: 'html-loader',
       }, {
+        loader: 'pug-html-loader',
+        options: {
+          basedir: srcPath('layout/'),
+          data: {
+            navs: [
+              { name: 'Home', href: "./index.html" },
+              { name: 'Data', href: './data.html' },
+              { name: 'Submit', href: './submit.html' },
+              { name: 'Result', href: './result.html' },
+              { name: 'FAQ', href: './FAQ.html' },
+            ],
+            selectedId: 0,
+            title: 'Miccai 19',
+          },
+        }
+      /*
+      }, {
         loader: path.resolve('./src/loaders/pug-loader.js'),
         options: {
           basedir: srcPath('layout/'),
@@ -71,6 +88,7 @@ module.exports = {
             title: 'Miccai 19',
           },
         }
+        */
       }],
     }],
   },
